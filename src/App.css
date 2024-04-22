@@ -1,21 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #ca9ecc;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,15 +9,137 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: auto; /* 이 속성은 각 그리드 아이템의 높이를 그 내용에 따라 자동으로 설정합니다. */
+  gap: 10px;
+  padding: 20px;
+  justify-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Photo-item {
+  width: 100%; /* 이미지가 그리드 칼럼의 전체 폭을 차지하게 합니다 */
+  display: block; /* 이미지가 각각의 높이를 결정하게 합니다 */
+  overflow: hidden;
+  position: relative;
+  height: auto;
+}
+
+.Photo-item img {
+  width: 100%; /* 이미지 너비는 부모 요소에 맞춰집니다 */
+  height: auto; /* 이미지 높이는 자동으로 원본 비율에 맞춰집니다 */
+  display: block; /* 추가 공간을 제거합니다 */
+}
+
+.Photo-item:hover img {
+  transform: scale(1.1);
+  filter: blur(4px);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  white-space: pre-wrap;
+  text-align: center;
+  padding: 10px;
+  transition: opacity 0.2s ease-in-out;
+  font-size: 20px;
+  opacity: 0;
+}
+
+.Photo-item:hover .overlay {
+  opacity: 1;
+}
+.modal {
+  position: fixed; /* 뷰포트에 상대적으로 배치 */
+  top: 0; /* 화면의 맨 위에서 시작 */
+  left: 0; /* 화면의 왼쪽에서 시작 */
+  width: 100vw; /* 뷰포트의 전체 너비 */
+  height: 100vh; /* 뷰포트의 전체 높이 */
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */
+  z-index: 1000; /* 다른 요소 위에 표시되도록 z-index 설정 */
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.close-button {
+  float: right;
+  font-size: 1.5em;
+}
+.input-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* 필수 입력 필드 유효성 검사에 대한 스타일 */
+.input-group input:invalid {
+  border-color: #e3342f;
+}
+
+.input-group input:invalid:focus {
+  border-color: #e3342f;
+}
+.login-container {
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 250px; /* 고정 폭을 가지며 너무 크거나 작지 않음 */
+}
+
+.login-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.login-button:hover {
+  background: #0056b3;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  background: #FFC0CB;
 }
