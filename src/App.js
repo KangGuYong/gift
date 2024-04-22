@@ -55,7 +55,7 @@ function Login({ onSuccess }) {
         <div className="input-group">
           <input
             type="text"
-            placeholder="아이디"
+            placeholder="이름"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
@@ -64,7 +64,7 @@ function Login({ onSuccess }) {
         <div className="input-group">
           <input
             type="password"
-            placeholder="비밀번호"
+            placeholder="생년월일 8자리"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
