@@ -42,7 +42,7 @@ function Login({ onSuccess }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (username === '조하람' && password === '20240422') {
+    if (username === '조하람' && password === '19990422') {
       onSuccess();
     } else {
       alert('잘못된 아이디 또는 비밀번호입니다.');
